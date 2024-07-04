@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 interface SearchResult {
   name: string
@@ -8,6 +8,15 @@ interface SearchResult {
 interface SearchResultsState {
   results: SearchResult[]
   loading: boolean
+}
+
+interface ApiResult {
+  name: string
+  gender: string
+}
+
+interface ApiResponse {
+  results: ApiResult[]
 }
 
 class SearchResults extends Component<{}, SearchResultsState> {
@@ -29,7 +38,7 @@ class SearchResults extends Component<{}, SearchResultsState> {
   }
 
   handleSearchEvent = (event: Event) => {
-    const searchTerm = (event as CustomEvent<string>).detail
+    const searchTerm = (event as CustomEvent).detail
     this.fetchData(searchTerm)
   }
 

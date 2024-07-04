@@ -30,11 +30,7 @@ class SearchInput extends Component<{}, SearchInputState> {
   }
 
   handleErrorClick = () => {
-    try {
-      throw new Error('Test Error')
-    } catch (error) {
-      console.error('Caught an error:', error)
-    }
+    throw new Error('Test Error')
   }
 
   render() {
