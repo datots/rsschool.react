@@ -19,8 +19,10 @@ interface ApiResponse {
   results: ApiResult[]
 }
 
-class SearchResults extends Component<{}, SearchResultsState> {
-  constructor(props: {}) {
+interface SearchResultsProps {}
+
+class SearchResults extends Component<SearchResultsProps, SearchResultsState> {
+  constructor(props: SearchResultsProps) {
     super(props)
     this.state = {
       results: [],

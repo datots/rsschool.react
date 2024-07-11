@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, ChangeEvent } from 'react'
+
+interface SearchInputProps {}
 
 interface SearchInputState {
   searchTerm: string
 }
 
-class SearchInput extends Component<{}, SearchInputState> {
-  constructor(props: {}) {
+class SearchInput extends Component<SearchInputProps, SearchInputState> {
+  constructor(props: SearchInputProps) {
     super(props)
     this.state = {
       searchTerm: '',
@@ -19,7 +21,7 @@ class SearchInput extends Component<{}, SearchInputState> {
     }
   }
 
-  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchTerm: event.target.value })
   }
 
@@ -30,7 +32,12 @@ class SearchInput extends Component<{}, SearchInputState> {
   }
 
   handleErrorClick = () => {
-    throw new Error('Test Error')
+    try {
+      throw new Error('Test Error')
+    } catch (error) {
+      console.error('Error occurred:', error)
+      // Handle the error gracefully, e.g., show an error message to the user
+    }
   }
 
   render() {
