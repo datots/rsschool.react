@@ -4,10 +4,17 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-compiler/recommended",
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "react-compiler"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "react/prop-types": "off",
@@ -19,7 +26,9 @@
           "{}": false
         }
       }
-    ]
+    ],
+    "react-compiler/no-unused-vars": "error",
+    "react-compiler/no-deprecated": "error"
   },
   "settings": {
     "react": {
